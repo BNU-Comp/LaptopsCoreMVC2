@@ -23,10 +23,12 @@ namespace LaptopsCoreMVC.Models
         [DataType(DataType.EmailAddress)]
         public string EmailAddress { get; set; }
 
-        [Required, StringLength(20), DisplayName("Email")]
-        [DataType(DataType.EmailAddress)]
+        [Required, StringLength(20), DisplayName("Phone")]
+        [DataType(DataType.PhoneNumber)]
         public string PhoneNumber { get; set; }
 
+        [Required, StringLength(20), DisplayName("Address")]
+        [DataType(DataType.EmailAddress)]
         public Nullable<int> AddressID { get; set; }
     }
 }
