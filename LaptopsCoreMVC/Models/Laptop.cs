@@ -7,22 +7,23 @@ using System.Threading.Tasks;
 
 namespace LaptopsCoreMVC.Models
 {
-    public class Laptops
+    public class Laptop
     {
         public int LaptopID { get; set; }
 
         [Required, StringLength(20), DisplayName("Price")]
+        [DisplayFormat(DataFormatString = "{0:C0}", ApplyFormatInEditMode = true)]
         [DataType(DataType.Currency)]
-        public int Price { get; set; }
+        public decimal Price { get; set; }
 
-        [Required, StringLength(20), DisplayName("Ram Size")]
+        [Required, Range(2,32), DisplayName("Ram Size GB")]
         public int RamSize { get; set; }
 
-        [Required, StringLength(20), DisplayName("Memory Size")]
+        [Required, Range(500,2000), DisplayName("HDD Size")]
         public int MemorySize { get; set; }
 
-        [Required, StringLength(20), DisplayName("Laptop Dimensions")]
-        public int LaptopDimensions { get; set; }
+        [Required, StringLength(20), DisplayName("Laptop Dimensions (cm)")]
+        public string LaptopDimensions { get; set; }
 
         [Required, StringLength(20), DisplayName("Operating System")]
         [DataType(DataType.Text)]
@@ -39,15 +40,22 @@ namespace LaptopsCoreMVC.Models
         [DataType(DataType.Text)]
         public string Processor { get; set; }
 
-        [Required, StringLength(20), DisplayName("Battery")]
+        [Required, StringLength(20), DisplayName("Battery (hr)")]
         public int BatteryLife { get; set; }
 
         [Required, StringLength(20), DisplayName("Colour")]
-        [DataType(DataType.Text)]
-        public string colour { get; set; }
+        public Colours Colour { get; set; }
         
         [Required, StringLength(20), DisplayName("Description")]
-        [DataType(DataType.Text)]
+        [DataType(DataType.MultilineText)]
         public string Description { get; set; }
+    }
+
+    public enum Colours 
+    {
+        Silver,
+        Gold, 
+        Grey,
+        Black
     }
 }

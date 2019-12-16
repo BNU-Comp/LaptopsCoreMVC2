@@ -123,6 +123,14 @@ namespace LaptopsCoreMVC.Data
                 },
 
             };
+
+            foreach (Customer c in customers)
+            {
+                context.Customers.Add(c);
+            }
+
+            context.SaveChanges();
+
         }
     }
 }

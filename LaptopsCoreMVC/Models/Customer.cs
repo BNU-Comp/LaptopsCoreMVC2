@@ -27,8 +27,7 @@ namespace LaptopsCoreMVC.Models
         [DataType(DataType.PhoneNumber)]
         public string PhoneNumber { get; set; }
 
-        [Required, StringLength(20), DisplayName("Address")]
-        [DataType(DataType.EmailAddress)]
+        
         public Nullable<int> AddressID { get; set; }
     }
 }
