@@ -4,14 +4,16 @@ using LaptopsCoreMVC.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace LaptopsCoreMVC.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20191219151033_EnlargeAllLaptopStrings")]
+    partial class EnlargeAllLaptopStrings
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -56,14 +58,17 @@ namespace LaptopsCoreMVC.Data.Migrations
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int>("BatteryLife");
+                    b.Property<int>("BatteryLife")
+                        .HasMaxLength(30);
 
                     b.Property<int>("Colour");
 
                     b.Property<string>("Description")
+                        .IsRequired()
                         .HasMaxLength(2000);
 
                     b.Property<string>("LaptopDimensions")
+                        .IsRequired()
                         .HasMaxLength(30);
 
                     b.Property<int>("MemorySize");
@@ -88,6 +93,7 @@ namespace LaptopsCoreMVC.Data.Migrations
                     b.Property<int>("RamSize");
 
                     b.Property<string>("Resolution")
+                        .IsRequired()
                         .HasMaxLength(30);
 
                     b.HasKey("LaptopID");

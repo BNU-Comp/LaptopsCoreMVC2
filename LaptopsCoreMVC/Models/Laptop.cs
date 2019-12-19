@@ -11,7 +11,7 @@ namespace LaptopsCoreMVC.Models
     {
         public int LaptopID { get; set; }
 
-        [Required, StringLength(20), DisplayName("Price (£)")]
+        [Required, DisplayName("Price (£)")]
         [DisplayFormat(DataFormatString = "{0:C0}", ApplyFormatInEditMode = true)]
         [DataType(DataType.Currency)]
         public decimal Price { get; set; }
@@ -22,39 +22,34 @@ namespace LaptopsCoreMVC.Models
         [Required, Range(500,2000), DisplayName("HDD Size (GB)")]
         public int MemorySize { get; set; }
 
-        [Required, StringLength(20), DisplayName("Laptop Dimensions (inches)")]
+        [StringLength(30), DisplayName("Laptop Dimensions (inches)")]
         public string LaptopDimensions { get; set; }
 
-        [Required, StringLength(20), DisplayName("Operating System")]
-        [DataType(DataType.Text)]
+        [Required, StringLength(30), DisplayName("Operating System")]
         public string OperatingSystem { get; set; }
 
-        [Required, StringLength(20), DisplayName("Model")]
-        [DataType(DataType.Text)]
+        [Required, StringLength(30), DisplayName("Model")]
         public string Model { get; set; }
 
-        [Required, StringLength(20), DisplayName("Resolution (Pixels)")]
+        [StringLength(30), DisplayName("Resolution (Pixels)")]
         public string Resolution { get; set; }
 
-        [Required, StringLength(20), DisplayName("Processor")]
-        [DataType(DataType.Text)]
+        [Required, StringLength(30), DisplayName("Processor")]
         public string Processor { get; set; }
 
-        [Required, StringLength(20), DisplayName("Battery (hr)")]
+        [Required, Range(1, 12), DisplayName("Battery (hr)")]
         public int BatteryLife { get; set; }
 
-        [Required, StringLength(20), DisplayName("Colour")]
+        [DisplayName("Colour")]
         public Colours Colour { get; set; }
         
-        [Required, StringLength(2000), DisplayName("Description")]
+        [StringLength(2000), DisplayName("Description")]
         [DataType(DataType.MultilineText)]
         public string Description { get; set; }
 
-        [StringLength(120), DisplayName("Picture URL")]
+        [StringLength(200), DisplayName("Picture URL")]
         [DataType(DataType.ImageUrl)]
         public string Picture { get; set; }
-
-
     }
 
     public enum Colours 
@@ -63,6 +58,9 @@ namespace LaptopsCoreMVC.Models
         Gold, 
         Grey,
         Black,
-        red
+        Red,
+        White,
+        Blue,
+        Green
     }
 }
