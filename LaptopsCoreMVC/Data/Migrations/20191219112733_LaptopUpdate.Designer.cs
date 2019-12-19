@@ -4,14 +4,16 @@ using LaptopsCoreMVC.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace LaptopsCoreMVC.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20191219112733_LaptopUpdate")]
+    partial class LaptopUpdate
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -64,7 +66,7 @@ namespace LaptopsCoreMVC.Data.Migrations
 
                     b.Property<string>("Description")
                         .IsRequired()
-                        .HasMaxLength(2000);
+                        .HasMaxLength(20);
 
                     b.Property<string>("LaptopDimensions")
                         .IsRequired()
@@ -81,7 +83,8 @@ namespace LaptopsCoreMVC.Data.Migrations
                         .HasMaxLength(20);
 
                     b.Property<string>("Picture")
-                        .HasMaxLength(120);
+                        .IsRequired()
+                        .HasMaxLength(60);
 
                     b.Property<decimal>("Price")
                         .HasMaxLength(20);

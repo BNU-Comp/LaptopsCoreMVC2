@@ -11,7 +11,7 @@ namespace LaptopsCoreMVC.Models
     {
         public int LaptopID { get; set; }
 
-        [Required, StringLength(20), DisplayName("Price")]
+        [Required, StringLength(20), DisplayName("Price (£)")]
         [DisplayFormat(DataFormatString = "{0:C0}", ApplyFormatInEditMode = true)]
         [DataType(DataType.Currency)]
         public decimal Price { get; set; }
@@ -19,10 +19,10 @@ namespace LaptopsCoreMVC.Models
         [Required, Range(2,32), DisplayName("Ram Size GB")]
         public int RamSize { get; set; }
 
-        [Required, Range(500,2000), DisplayName("HDD Size")]
+        [Required, Range(500,2000), DisplayName("HDD Size (GB)")]
         public int MemorySize { get; set; }
 
-        [Required, StringLength(20), DisplayName("Laptop Dimensions (cm)")]
+        [Required, StringLength(20), DisplayName("Laptop Dimensions (inches)")]
         public string LaptopDimensions { get; set; }
 
         [Required, StringLength(20), DisplayName("Operating System")]
@@ -33,7 +33,7 @@ namespace LaptopsCoreMVC.Models
         [DataType(DataType.Text)]
         public string Model { get; set; }
 
-        [Required, StringLength(20), DisplayName("Resolution")]
+        [Required, StringLength(20), DisplayName("Resolution (Pixels)")]
         public string Resolution { get; set; }
 
         [Required, StringLength(20), DisplayName("Processor")]
@@ -46,9 +46,15 @@ namespace LaptopsCoreMVC.Models
         [Required, StringLength(20), DisplayName("Colour")]
         public Colours Colour { get; set; }
         
-        [Required, StringLength(20), DisplayName("Description")]
+        [Required, StringLength(2000), DisplayName("Description")]
         [DataType(DataType.MultilineText)]
         public string Description { get; set; }
+
+        [StringLength(120), DisplayName("Picture URL")]
+        [DataType(DataType.ImageUrl)]
+        public string Picture { get; set; }
+
+
     }
 
     public enum Colours 
@@ -56,6 +62,7 @@ namespace LaptopsCoreMVC.Models
         Silver,
         Gold, 
         Grey,
-        Black
+        Black,
+        red
     }
 }

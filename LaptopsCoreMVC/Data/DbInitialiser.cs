@@ -11,6 +11,190 @@ namespace LaptopsCoreMVC.Data
         public static void DbInitialise(ApplicationDbContext context)
         {
             InitialiseCustomers(context);
+            InitialiseLaptops(context);
+        }
+
+        private static void InitialiseLaptops(ApplicationDbContext context)
+        {
+            if (context.Laptop.Any())
+            {
+                return;
+            }
+
+            var laptops = new Laptop[]
+            {
+                new Laptop
+                {
+                    Model = "HP",
+                    LaptopDimensions = "15x16x13",
+                    BatteryLife = 8,
+                    MemorySize = 500,
+                    OperatingSystem = "Windows 10",
+                    RamSize = 8,
+                    Processor = "Intel Core m",
+                    Resolution = "1920 x 1080",
+                    Price = 500,
+                    //Picture = "https://store.hp.com/UKStore/Html/Merch/Images/c06224213_1750x1285.jpg",
+                    Description = "Thin and Sleek: With its brushed finish and seamless bar hinge, the smartly designed HP laptop looks as good as it performs."
+
+                },
+
+                new Laptop
+                {
+                    Model = "Macintosh",
+                    LaptopDimensions = "13x12x14",
+                    BatteryLife = 7,
+                    MemorySize = 400,
+                    OperatingSystem = "Mac OS X",
+                    RamSize = 8,
+                    Processor = "8-core Intel Core processors",
+                    Resolution = "1920 x 1080",
+                    Price = 600,
+                    //Picture = "https://images.techhive.com/images/article/2014/12/macbook_air-100538062-large.jpg",
+                    Description = "The Macintosh is carved out of solid aluminum, thus giving it a distinctive look and a grayish-white hue. The Macintosh in particular has a thin and light design."
+
+                },
+
+                new Laptop
+                {
+                    Model = "Windows",
+                    LaptopDimensions = "11x14x15",
+                    BatteryLife = 9,
+                    MemorySize = 600,
+                    OperatingSystem = "Windows 10",
+                    RamSize = 8,
+                    Processor = "Core i5 ",
+                    Resolution = "1920 x 1080",
+                    Price = 800,
+                    //Picture = "https://zdnet2.cbsistatic.com/hub/i/r/2017/06/14/df619b4e-92f6-4d69-be60-95c196bba341/thumbnail/770x433/cc5579fe8094a3a0bb8638aa82325c4e/microsoft-surface-laptop-mouse.png",
+                    Description = "A smooth all-metal finish gives this laptop a sharp, polished look - from the elevated keyboard to the new narrow bezel design, every detail was crafted for comfort and style."
+
+                },
+
+                new Laptop
+                {
+                    Model = "Asus",
+                    LaptopDimensions = "13x16x11",
+                    BatteryLife = 6,
+                    MemorySize = 300,
+                    OperatingSystem = "Intel Celeron N4000",
+                    RamSize = 4,
+                    Processor = "Intel 4th Gen Core ",
+                    Resolution = "1920 x 1080",
+                    Price = 400,
+                    //Picture = "https://images-na.ssl-images-amazon.com/images/I/71VDl54D8pL._SX466_.jpg",
+                    Description = "A smooth all-metal finish gives this laptop a sharp, polished look - from the elevated keyboard to the new narrow bezel design, every detail was crafted for comfort and style."
+
+                },
+
+                new Laptop
+                {
+                    Model = "Dell",
+                    LaptopDimensions = "13x16x11",
+                    BatteryLife = 10,
+                    MemorySize = 700,
+                    OperatingSystem = "Windows 8",
+                    RamSize = 8,
+                    Processor = "intel pentium 3 ",
+                    Resolution = "1920 x 1080",
+                    Price = 400,
+                    //Picture = "https://images-na.ssl-images-amazon.com/images/I/71VDl54D8pL._SX466_.jpg",
+                    Description = "A smooth all-metal finish gives this laptop a sharp, polished look - from the elevated keyboard to the new narrow bezel design, every detail was crafted for comfort and style."
+
+                },
+
+                new Laptop
+                {
+                    Model = "Lenovo",
+                    LaptopDimensions = "13x16x11",
+                    BatteryLife = 13,
+                    MemorySize = 700,
+                    OperatingSystem = "Windows 10",
+                    RamSize = 8,
+                    Processor = "intel core i7 ",
+                    Resolution = "1920 x 1080",
+                    Price = 900,
+                    Picture = "https://www.lenovo.com/medias/lenovo-laptop-ideapad-y700-17-back.png?context=bWFzdGVyfGltYWdlc3wyMzI5OHxpbWFnZS9wbmd8aW1hZ2VzL2gxNS9oOTUvOTM5NzUwOTI5MjA2Mi5wbmd8OGViOWNmNzNjYmI2N2ZiZGI2NTYyMjY3ZDFlYTcyYjJmNDU3ZDdmYThmNzFiNjhkN2Y4MmYxNDhhNDljNDYyYg",
+                    Description = "A smooth all-metal finish gives this laptop a sharp, polished look - from the elevated keyboard to the new narrow bezel design, every detail was crafted for comfort and style."
+
+                },
+
+                new Laptop
+                {
+                    Model = "Msi",
+                    LaptopDimensions = "12x17x13",
+                    BatteryLife = 12,
+                    MemorySize = 600,
+                    OperatingSystem = "Windows 8",
+                    RamSize = 16,
+                    Processor = "intel core i7 ",
+                    Resolution = "1920 x 1080",
+                    Price = 900,
+                    //Picture = "https://static.bhphotovideo.com/explora/sites/default/files/MSI_0.jpg",
+                    //Picture = "MSI Laptop",
+                    Description = "A smooth all-metal finish gives this laptop a sharp, polished look - from the elevated keyboard to the new narrow bezel design, every detail was crafted for comfort and style."
+
+                },
+
+
+                new Laptop
+                {
+                    Model = "Acer",
+                    LaptopDimensions = "11x15x12",
+                    BatteryLife = 9,
+                    MemorySize = 700,
+                    OperatingSystem = "Windows 10",
+                    RamSize = 16,
+                    Processor = "Intel Core i5-4210U ",
+                    Resolution = "1920 x 1080",
+                    Price = 1100,
+                    //Picture = "https://static.bhphotovideo.com/explora/sites/default/files/Acer-Aspire.jpg",
+                    //Picture = "MS Laptop",
+                    Description = "A smooth all-metal finish gives this laptop a sharp, polished look - from the elevated keyboard to the new narrow bezel design, every detail was crafted for comfort and style."
+
+                },
+
+                new Laptop
+                {
+                    Model = "Macbook",
+                    LaptopDimensions = "12x13x19",
+                    BatteryLife = 10,
+                    MemorySize = 800,
+                    OperatingSystem = "Mac OS X",
+                    RamSize = 16,
+                    Processor = "8-core Intel Core processors ",
+                    Resolution = "1920 x 1080",
+                    Price = 1100,
+                    //Picture = "https://cdn.pocket-lint.com/r/s/970x/assets/images/71784-laptops-review-apple-macbook-pro-15-inch-i5-notebook-image1-yjlcOnqg4Z.JPG",
+                    //Picture = "MS Laptop",
+                    Description = "The Macintosh is carved out of solid aluminum, thus giving it a distinctive look and a grayish-white hue. The Macintosh in particular has a thin and light design."
+
+                },
+
+                new Laptop
+                {
+                    Model = "Microsoft",
+                    LaptopDimensions = "13x15x16",
+                    BatteryLife = 12,
+                    MemorySize = 900,
+                    OperatingSystem = "Microsoft 10",
+                    RamSize = 16,
+                    Processor = "Intel Core i5 Processor ",
+                    Resolution = "1920 x 1080",
+                    Price = 1100,
+                    //Picture = "https://johnlewis.scene7.com/is/image/JohnLewis/238340601?$rsp-pdp-port-1080$",
+                    //Picture = "MS Laptop",
+                    Description = "Microsoft laptop with high end specifications."
+
+                },
+
+            };
+            foreach (Laptop l in laptops)
+            {
+                context.Laptop.Add(l);
+            }
+
+            context.SaveChanges();
         }
 
         private static void InitialiseCustomers(ApplicationDbContext context)
