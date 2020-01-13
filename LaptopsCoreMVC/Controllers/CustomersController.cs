@@ -7,9 +7,11 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using LaptopsCoreMVC.Data;
 using LaptopsCoreMVC.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace LaptopsCoreMVC.Controllers
 {
+    //[Authorize(Roles ="Admin")]
     public class CustomersController : Controller
     {
         private readonly ApplicationDbContext _context;

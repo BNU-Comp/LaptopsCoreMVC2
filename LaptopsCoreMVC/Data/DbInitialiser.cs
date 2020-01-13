@@ -51,7 +51,7 @@ namespace LaptopsCoreMVC.Data
                     Processor = "8-core Intel",
                     Resolution = "1920 x 1080",
                     Price = 600,
-                    Picture = "https://images.techhive.com/images/article/2014/12/macbook_air-100538062-large.jpg",
+                    //Picture = "https://images.techhive.com/images/article/2014/12/macbook_air-100538062-large.jpg",
                     Description = "The Macintosh is carved out of solid aluminum, thus giving it a distinctive look and a grayish-white hue. The Macintosh in particular has a thin and light design."
 
                 },
@@ -68,7 +68,7 @@ namespace LaptopsCoreMVC.Data
                     Processor = "Core i5",
                     Resolution = "1920 x 1080",
                     Price = 800,
-                    Picture = "https://zdnet2.cbsistatic.com/hub/i/r/2017/06/14/df619b4e-92f6-4d69-be60-95c196bba341/thumbnail/770x433/cc5579fe8094a3a0bb8638aa82325c4e/microsoft-surface-laptop-mouse.png",
+                    Picture = "Windows.png",
                     Description = "A smooth all-metal finish gives this laptop a sharp, polished look - from the elevated keyboard to the new narrow bezel design, every detail was crafted for comfort and style."
                 },
 
@@ -118,7 +118,7 @@ namespace LaptopsCoreMVC.Data
                     Processor = "intel core i7",
                     Resolution = "1920 x 1080",
                     Price = 900,
-                    //Picture = "https://www.lenovo.com/medias/lenovo-laptop-ideapad-y700-17-back.png?context=bWFzdGVyfGltYWdlc3wyMzI5OHxpbWFnZS9wbmd8aW1hZ2VzL2gxNS9oOTUvOTM5NzUwOTI5MjA2Mi5wbmd8OGViOWNmNzNjYmI2N2ZiZGI2NTYyMjY3ZDFlYTcyYjJmNDU3ZDdmYThmNzFiNjhkN2Y4MmYxNDhhNDljNDYyYg",
+                    //Picture = "Lenova.png",
                     Description = "A smooth all-metal finish gives this laptop a sharp, polished look - from the elevated keyboard to the new narrow bezel design, every detail was crafted for comfort and style."
 
                 },
