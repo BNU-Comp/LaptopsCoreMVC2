@@ -14,6 +14,7 @@ namespace LaptopsCoreMVC.Data
         {
         }
         public DbSet<Customer> Customers { get; set; }
-        public DbSet<LaptopsCoreMVC.Models.Laptop> Laptop { get; set; }
+        public DbSet<Laptop> Laptop { get; set; }
+        public DbSet<Address> Address { get; set; }
     }
 }
