@@ -2,12 +2,30 @@
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace LaptopsCoreMVC.Data.Migrations
+namespace LaptopsCoreMVC.Migrations
 {
-    public partial class CreateIdentitySchema : Migration
+    public partial class CreateDatabase : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.CreateTable(
+                name: "Addresses",
+                columns: table => new
+                {
+                    AddressID = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                    HouseNumber = table.Column<string>(nullable: false),
+                    Street = table.Column<string>(nullable: false),
+                    Postcode = table.Column<string>(maxLength: 9, nullable: false),
+                    City = table.Column<string>(nullable: false),
+                    Country = table.Column<int>(nullable: false),
+                    CustomerID = table.Column<int>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Addresses", x => x.AddressID);
+                });
+
             migrationBuilder.CreateTable(
                 name: "AspNetRoles",
                 columns: table => new
@@ -45,6 +63,65 @@ namespace LaptopsCoreMVC.Data.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_AspNetUsers", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Customers",
+                columns: table => new
+                {
+                    CustomerID = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                    UserID = table.Column<string>(nullable: true),
+                    FirstName = table.Column<string>(maxLength: 20, nullable: false),
+                    LastName = table.Column<string>(maxLength: 20, nullable: false),
+                    EmailAddress = table.Column<string>(maxLength: 20, nullable: false),
+                    PhoneNumber = table.Column<string>(maxLength: 20, nullable: false),
+                    AddressID = table.Column<int>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Customers", x => x.CustomerID);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Laptop",
+                columns: table => new
+                {
+                    LaptopID = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                    Price = table.Column<decimal>(nullable: false),
+                    RamSize = table.Column<int>(nullable: false),
+                    MemorySize = table.Column<int>(nullable: false),
+                    LaptopDimensions = table.Column<string>(maxLength: 30, nullable: true),
+                    OperatingSystem = table.Column<string>(maxLength: 30, nullable: false),
+                    Model = table.Column<string>(maxLength: 30, nullable: false),
+                    Resolution = table.Column<string>(maxLength: 30, nullable: true),
+                    Processor = table.Column<string>(maxLength: 30, nullable: false),
+                    BatteryLife = table.Column<int>(nullable: false),
+                    Colour = table.Column<int>(nullable: false),
+                    Description = table.Column<string>(maxLength: 2000, nullable: true),
+                    Picture = table.Column<string>(maxLength: 200, nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Laptop", x => x.LaptopID);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "PaymentCards",
+                columns: table => new
+                {
+                    PaymentCardID = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                    CardName = table.Column<string>(nullable: true),
+                    CardNumber = table.Column<string>(nullable: true),
+                    CardType = table.Column<int>(nullable: false),
+                    ExpiryMonth = table.Column<int>(nullable: false),
+                    ExpiryYear = table.Column<int>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_PaymentCards", x => x.PaymentCardID);
                 });
 
             migrationBuilder.CreateTable(
@@ -196,6 +273,9 @@ namespace LaptopsCoreMVC.Data.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
+                name: "Addresses");
+
+            migrationBuilder.DropTable(
                 name: "AspNetRoleClaims");
 
             migrationBuilder.DropTable(
@@ -209,6 +289,15 @@ namespace LaptopsCoreMVC.Data.Migrations
 
             migrationBuilder.DropTable(
                 name: "AspNetUserTokens");
+
+            migrationBuilder.DropTable(
+                name: "Customers");
+
+            migrationBuilder.DropTable(
+                name: "Laptop");
+
+            migrationBuilder.DropTable(
+                name: "PaymentCards");
 
             migrationBuilder.DropTable(
                 name: "AspNetRoles");

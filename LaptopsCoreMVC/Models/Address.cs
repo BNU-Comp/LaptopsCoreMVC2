@@ -22,7 +22,16 @@ namespace LaptopsCoreMVC.Models
         [Required, Range(1, 30)]
         public string City { get; set; }
         [Required, Range(1, 30)]
-        public string Country { get; set; }
+        public Counties Country { get; set; }
         public int CustomerID { get; set; }
+    }
+
+
+    public enum Counties
+    {
+        Bucks,
+        Herts,
+        Middlesex,
+        Essex
     }
 }

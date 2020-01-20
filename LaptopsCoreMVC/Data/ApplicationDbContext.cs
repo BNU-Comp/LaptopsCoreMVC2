@@ -13,8 +13,13 @@ namespace LaptopsCoreMVC.Data
             : base(options)
         {
         }
+
         public DbSet<Customer> Customers { get; set; }
+
         public DbSet<Laptop> Laptop { get; set; }
-        public DbSet<Address> Address { get; set; }
+
+        public DbSet<Address> Addresses { get; set; }
+
+        public DbSet<PaymentCard> PaymentCards { get; set; }
     }
 }

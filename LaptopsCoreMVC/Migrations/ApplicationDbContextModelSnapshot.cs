@@ -4,22 +4,48 @@ using LaptopsCoreMVC.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
-using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
-namespace LaptopsCoreMVC.Data.Migrations
+namespace LaptopsCoreMVC.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20191219151033_EnlargeAllLaptopStrings")]
-    partial class EnlargeAllLaptopStrings
+    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
     {
-        protected override void BuildTargetModel(ModelBuilder modelBuilder)
+        protected override void BuildModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
                 .HasAnnotation("ProductVersion", "2.1.11-servicing-32099")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+            modelBuilder.Entity("LaptopsCoreMVC.Models.Address", b =>
+                {
+                    b.Property<int>("AddressID")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("City")
+                        .IsRequired();
+
+                    b.Property<int>("Country");
+
+                    b.Property<int>("CustomerID");
+
+                    b.Property<string>("HouseNumber")
+                        .IsRequired();
+
+                    b.Property<string>("Postcode")
+                        .IsRequired()
+                        .HasMaxLength(9);
+
+                    b.Property<string>("Street")
+                        .IsRequired();
+
+                    b.HasKey("AddressID");
+
+                    b.ToTable("Addresses");
+                });
 
             modelBuilder.Entity("LaptopsCoreMVC.Models.Customer", b =>
                 {
@@ -58,17 +84,14 @@ namespace LaptopsCoreMVC.Data.Migrations
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int>("BatteryLife")
-                        .HasMaxLength(30);
+                    b.Property<int>("BatteryLife");
 
                     b.Property<int>("Colour");
 
                     b.Property<string>("Description")
-                        .IsRequired()
                         .HasMaxLength(2000);
 
                     b.Property<string>("LaptopDimensions")
-                        .IsRequired()
                         .HasMaxLength(30);
 
                     b.Property<int>("MemorySize");
@@ -93,12 +116,32 @@ namespace LaptopsCoreMVC.Data.Migrations
                     b.Property<int>("RamSize");
 
                     b.Property<string>("Resolution")
-                        .IsRequired()
                         .HasMaxLength(30);
 
                     b.HasKey("LaptopID");
 
                     b.ToTable("Laptop");
+                });
+
+            modelBuilder.Entity("LaptopsCoreMVC.Models.PaymentCard", b =>
+                {
+                    b.Property<int>("PaymentCardID")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("CardName");
+
+                    b.Property<string>("CardNumber");
+
+                    b.Property<int>("CardType");
+
+                    b.Property<int>("ExpiryMonth");
+
+                    b.Property<int>("ExpiryYear");
+
+                    b.HasKey("PaymentCardID");
+
+                    b.ToTable("PaymentCards");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>

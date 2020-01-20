@@ -9,21 +9,27 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="Data\Migrations\20191216115531_UpdateLaptop.cs" />
-    <Compile Remove="Data\Migrations\20191216115531_UpdateLaptop.Designer.cs" />
-  </ItemGroup>
-
-  <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.App" />
     <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.1.2" PrivateAssets="All" />
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.1.10" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Views\Address\" />
     <Folder Include="Views\PaymentCard\" />
     <Folder Include="Views\OrderItem\" />
     <Folder Include="Views\Order\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Update="Views\Customers\_ViewStart.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
+    <Content Update="Views\Laptops\_ViewStart.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
+    <Content Update="Views\Shared\_StaffLayout.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
   </ItemGroup>
 
 </Project>

@@ -12,6 +12,35 @@ namespace LaptopsCoreMVC.Data
         {
             InitialiseCustomers(context);
             InitialiseLaptops(context);
+           // InitialiseAddresses(context);
+           // IntialisePayments(context);
+        }
+
+        private static void InitialiseAddresses(ApplicationDbContext context)
+        {
+            if (context.Addresses.Any())
+            {
+                return;
+            }
+
+            var addresses = new Address[]
+            {
+                new Address
+                {
+                    HouseNumber = "38",
+                    Street = "High Street",
+                    City = "Watford",
+                    Country = Counties.Bucks,
+                    CustomerID = 1,
+                    Postcode = "WD5 0EL"
+                }
+            };
+
+        }
+
+        private static void IntialisePayments(ApplicationDbContext context)
+        {
+           
         }
 
         private static void InitialiseLaptops(ApplicationDbContext context)
